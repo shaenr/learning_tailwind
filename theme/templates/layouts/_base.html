@@ -1,0 +1,18 @@
+{% load static tailwind_tags %}
+{% load django_browser_reload %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>{% block title %}{% endblock title %}
+    </title>
+        {% include 'include/meta-boilerplate.html' %}
+		{% tailwind_css %}
+	</head>
+    <!-- Body Tag Opens Inside Body Block -->
+    {% block body %}
+	
+        <!-- Body Tag Closes Outside Deferred Script Call -->
+        {% block defer-script %}{% endblock defer-script %}
+    {% endblock body %}</body>
+        
+</html>

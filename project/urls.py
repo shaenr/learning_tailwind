@@ -14,9 +14,10 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import include, path
-from django.views.generic import TemplateView
+
+from .views import IndexPage
 
 urlpatterns = [
-    path("", TemplateView.as_view(template_name="index.html")),
+    path("", IndexPage.as_view(), name=IndexPage.page_name),
     path("__reload__/", include("django_browser_reload.urls")),
 ]
