@@ -60,7 +60,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
-                "project.context_processors.get_site_title"
+                "project.context.get_site_title"
             ],
         },
     },

@@ -26,8 +26,10 @@ COPY --chown=python:python . .
 
 WORKDIR /app
 
-RUN SECRET_KEY=nothing python manage.py tailwind install --no-input;
-RUN SECRET_KEY=nothing python manage.py tailwind build --no-input;
-RUN SECRET_KEY=nothing python manage.py collectstatic --no-input;
+RUN SECRET_KEY=nothing python manage.py tailwind install --no-input \
+  && SECRET_KEY=nothing python manage.py tailwind build --no-input \
+  && SECRET_KEY=nothing python manage.py collectstatic --no-input;
+
+WORKDIR /app
 
 CMD ["python", "manage.py", "runserver"]
